@@ -3,7 +3,6 @@ package com.inditex.test.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,7 +33,7 @@ public class PriceEntity {
     private Integer priority;
 
     @Column(name = "PRICE", nullable = false)
-    private BigDecimal price;
+    private Double price;
 
     @Column(name = "CURR", nullable = false)
     private String currency;

@@ -17,5 +17,5 @@ public interface PriceRepository extends JpaRepository<PriceEntity, Long> {
             "AND p.brandId = :brandId " +
             "AND :date BETWEEN p.startDate AND p.endDate " +
             "ORDER BY p.priority DESC")
-    List<PriceEntity> findValidPrices(@Param("productId")  Long productId, @Param("brandId") Integer brandId, @Param("date") LocalDateTime date);
+    List<PriceEntity> findValidPrices(@Param("productId")  Long productId, @Param("brandId") Long brandId, @Param("date") LocalDateTime date);
 }

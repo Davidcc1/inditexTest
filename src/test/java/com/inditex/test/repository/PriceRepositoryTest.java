@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.TestPropertySource;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ class PriceRepositoryTest {
                     .endDate(LocalDateTime.of(2020+elem, 12, 31, 23, 59))
                     .priceList(elem)
                     .priority(0)
-                    .price(new BigDecimal(30+elem*0.5))
+                    .price(30+elem*0.5)
                     .currency("EUR")
                     .build();
             prices.add(price);
@@ -50,7 +49,7 @@ class PriceRepositoryTest {
                 .endDate(LocalDateTime.of(2020, 12, 31, 23, 59))
                 .priceList(4)
                 .priority(1)
-                .price(new BigDecimal("45.50"))
+                .price(45.50)
                 .currency("EUR")
                 .build());
 
@@ -63,12 +62,12 @@ class PriceRepositoryTest {
 
         List<PriceEntity> results = priceRepository.findValidPrices(
                 35455L,
-                1,
+                1L,
                 LocalDateTime.of(2021, 6, 14, 10, 0)
         );
 
         assertThat(results).hasSize(1);
-        assertThat(results.getFirst().getPrice()).isEqualTo(new BigDecimal("30.5"));
+        assertThat(results.getFirst().getPrice()).isEqualTo(30.5);
     }
 
     @Test
@@ -77,7 +76,7 @@ class PriceRepositoryTest {
 
         List<PriceEntity> results = priceRepository.findValidPrices(
                 35455L,
-                2,
+                2L,
                 LocalDateTime.of(2020, 6, 14, 10, 0)
         );
 
@@ -90,11 +89,11 @@ class PriceRepositoryTest {
 
         List<PriceEntity> results = priceRepository.findValidPrices(
                 35455L,
-                1,
+                1L,
                 LocalDateTime.of(2020, 8, 14, 0, 0)
         );
 
         assertThat(results).hasSize(2);
-        assertThat(results.getFirst().getPrice()).isEqualTo(new BigDecimal("45.50"));
+        assertThat(results.getFirst().getPrice()).isEqualTo(45.50);
     }
 }
