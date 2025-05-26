@@ -12,6 +12,6 @@ public class ProductPriceResponse {
     private Long priceList;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Double price;
+    private String price;
 
 }

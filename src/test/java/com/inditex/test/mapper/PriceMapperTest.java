@@ -32,7 +32,7 @@ class PriceMapperTest {
         assertThat(response.getPriceList()).isEqualTo(2);
         assertThat(response.getStartDate()).isEqualTo("2020-06-14T15:00");
         assertThat(response.getEndDate()).isEqualTo("2020-06-14T18:30");
-        assertThat(response.getPrice()).isEqualTo(25.45);
+        assertThat(response.getPrice()).isEqualTo("25.45 EUR");
     }
 
     @Test
@@ -56,7 +56,7 @@ class PriceMapperTest {
         assertThat(response.getPriceList()).isNull();
         assertThat(response.getStartDate()).isNull();
         assertThat(response.getEndDate()).isNull();
-        assertThat(response.getPrice()).isNull();
+        assertThat(response.getPrice()).isEmpty();
     }
 
     @Test
@@ -75,6 +75,6 @@ class PriceMapperTest {
         assertThat(response.getProductId()).isEqualTo(99999L);
         assertThat(response.getBrandId()).isEqualTo(7);
         assertThat(response.getPriceList()).isNull();
-        assertThat(response.getPrice()).isEqualTo(19.99);
+        assertThat(response.getPrice()).isEqualTo("19.99 USD");
     }
 }
